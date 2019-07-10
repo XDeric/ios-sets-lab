@@ -13,6 +13,22 @@ Input: heights of trees below:
 Output:
 `169.375`
 
+```
+var heights = Set<Int>()
+var average = 0
+var inputs = [161, 182, 161, 154, 176, 170, 167, 171, 170, 174]
+
+
+for i in inputs{
+heights.insert(i)
+}
+print(heights)
+for j in heights{
+average += j
+}
+print("This is the average of inputs: \((average / heights.count))")
+```
+
 
 ## Question 2
 
@@ -20,7 +36,23 @@ Determine if a String is a pangram. A pangram is a string that contains every le
 
  e.g `"The quick brown fox jumps over the lazy dog"` is a pangram
  e.g `"The quick brown fox jumped over the lazy dog"` is NOT a pangram
+```
+var pangram = "abcdef ghi jkl mnop"
+var testForPangram = Set<Character>()
+var empty = pangram.replacingOccurrences(of: " ", with: "")
 
+for i in empty{
+testForPangram.insert(i)
+}
+pangram.count
+
+if empty.count <= testForPangram.count{
+print("The string is a Pangram ")
+}
+else{
+print("The string is not a pangram")
+}
+```
 
 ## Question 3
 
@@ -40,6 +72,22 @@ You are given an array `nums` representing the data status of the set S after th
  Input: `nums = [2,2]`
  Output: `[2,1]`
 
+```
+var nums = [1,2,2,4]
+var output = [2,3]
+var trueNums = Set<Int>()
+
+
+for i in nums{
+trueNums.insert(i)
+}
+for j in output{
+if !trueNums.contains(j){
+trueNums.insert(j)
+}
+}
+print(trueNums)
+```
 
 ## Question 4
 
@@ -51,7 +99,22 @@ let arr2 = [1, 2, 3, 4, 5, 6]
 let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
 let arr4 = [1, 3, 4, 5, 6, 7, 9]
 ```
+```
+let arr1 = [2, 4, 5, 6, 8, 10, 12]
+let arr2 = [1, 2, 3, 4, 5, 6]
+let arr3 = [5, 6, 7, 8, 9, 10, 11, 12]
+let arr4 = [1, 3, 4, 5, 6, 7, 9]
 
+let full = arr1 + arr2 + arr3 + arr4
+var fix = [Int]()
+
+for i in full{
+if !fix.contains(i){
+fix.append(i)
+}
+}
+print(fix.sorted())
+```
 
 ## Question 5
 
@@ -65,6 +128,11 @@ Perform the following set operations on the lists below:
 ```swift
 let list1: Set = [1, 3, 4, 6, 2, 7, 9]
 let list2: Set = [3, 7, 13, 10, 4]
+
+print("Intersection results \(list1.intersection(list2).sorted())")
+print("Symmetric Difference results \(list1.symmetricDifference(list2).sorted())")
+print("Union results \(list1.union(list2).sorted())")
+print("Subtracting results \(list1.subtracting(list2).sorted())")
 ```
 
 
@@ -90,7 +158,12 @@ print(spaceships.count)
 - This code will not compile
 - 1
 - This code will compile but crash
+```
+The output will be 3 because serenity would not duplicated in Set but the other items will go in for a total of 3 items
+^^^
+When I tried it out on xcode it actually will not run because the generic argument was not specified for set so the correct answer is that it won't compile
 
+```
 
 ## Question 7
 
