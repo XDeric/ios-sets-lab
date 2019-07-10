@@ -190,3 +190,8 @@ if spaceships1.isSubset(of: spaceships2) {
 - This code will not compile
 - "This is a subset"
 - Nothing will be output
+
+```
+same error as before code will not compile because Set was not declared. Unless it was an error var spaceships1 = Set<String>()
+if so then the output would be "This is a subset"
+```
